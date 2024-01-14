@@ -63,7 +63,6 @@ Nous allons pour l'instant créer uniquement la table trainers, nous reviendrons
 title: Trainer
 ---
 classDiagram
-    note "Trainer"
     Trainer : +int id
     Trainer : +String name
     Trainer : +String email
