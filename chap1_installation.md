@@ -1,5 +1,7 @@
 # Installation
 
+⛅ Cours Symfony 
+
 Pour utiliser Symfony il faut :
 
 -  PHP 8.1 intl, pdo_mysql, xsl, amqp, gd, openssl, sodium ou plus & les extensions suivantes :
@@ -9,6 +11,8 @@ Pour utiliser Symfony il faut :
 
 Ouvrez un terminal et tapez la ligne de commande suivante pour voir les extensions de votre PHP :
 
+🐚
+
 ```bash
 php -m
 ```
@@ -17,12 +21,16 @@ php -m
 
 *Remarques : une CLI ou Command Line Interface, est une suite de programmes exécutables en ligne de commandes, écrit en PHP et permettant de créer des controller, model, view. Elle permet également le testing et le déploiement de l'application.*
 
+🐚
+
 - Pour Mac
 
 ```bash
 curl -sS https://get.symfony.com/cli/installer | bash
 ```
 Une fois la CLI de Symfony installée vous pouvez y accéder de manière gloable :
+
+🐚
 
 ```bash
 mv /Users/votre_nom_de_machine/.symfony/bin/symfony /usr/local/bin/symfony
@@ -34,6 +42,8 @@ mv /Users/votre_nom_de_machine/.symfony/bin/symfony /usr/local/bin/symfony
 
 - Pour Windows utilisez scoop
 
+🐚
+
 ```bash
 scoop install symfony-cli
 ```
@@ -43,6 +53,8 @@ scoop install symfony-cli
 Composer doit-être installé et à jour.
 
 - Mise à jour de composer
+
+🐚
 
 ```bash
 # mise à jour de composer
@@ -61,6 +73,8 @@ Pour **découvrir Symfony**, nous allons faire les deux installations : **micros
 
 Vérifiez avant de continuer que votre système est correctement configuré avec la CLI de SF :
 
+🚀
+
 ```bash
 symfony check:requirements
 ```
@@ -69,17 +83,23 @@ symfony check:requirements
 
 Sur votre bureau dans un dossier **web-trainer** tapez dans la console la ligne de commande suivante :
 
+🚀
+
 ```bash
 symfony new web-trainer
 ```
 
 Avec composer uniquement, vous pourvez taper la ligne de commande suivante ( dans le dossier web-trainer) :
 
+🚀
+
 ```bash
 composer create-project symfony/skeleton web-trainer
 ```
 
 Vérifiez la configuration, placez-vous dans le dossier **web-trainer** et tapez la ligne de commande suivante (commandes SF) :
+
+🚀
 
 ```bash
 php bin/console about
@@ -89,6 +109,8 @@ Nous allons également voir toutes les commandes de la console disponibles pour 
 
 **Remarque** : une commande de la console permet par exemple de créer (makers) un "controller" **automatiquement** dans l'application (création et import des classes directement dans le fichier). L'intérêt de créer un contrôleur, à l'aide d'une commande de la console est que Symfony **définit lui-même**  les dépendances SF du controller de SF :
 
+🚀
+
 ```bash
 php bin/console
 ```
@@ -97,11 +119,15 @@ Nous reviendrons sur l'utilisation de ces commandes ci-dessous.
 
 Nous allons lancer le serveur de test Symfony, dans le dossier de notre application, tapez la ligne de code suivante, vous pouvez avant de la lancer obtenir sa documentation, voyez la première ci-dessous.
 
+🚀
+
 ```bash
 symfony help server:start
 ```
 
 Pour lancer le serveur lui-même :
+
+🚀
 
 ```bash
 symfony server:start
@@ -153,11 +179,15 @@ Comme nous utilisons l'option **microservice** pour découvrir Symfony (installa
 
 - Installez dans SF à l'aide de la CLI et en ligne de commande ce maker, il s'ajoutera aux commandes de la CLI SF
 
+🚀
+
 ```bash
 symfony composer req maker --dev
 ```
 
 Listez dans la console maintenant ces dépendances.
+
+🚀
 
 ```bash
 symfony console list make
@@ -167,11 +197,15 @@ symfony console list make
 
 Installez maintenant **le moteur de template Twig**, il permet de gérer les vues HTML de manière dynamique ( méta-langage Twig ou moteur de template).
 
+🚀
+
 ```bash
 composer require twig
 ```
 
 **Remarque** : vous pouvez également désinstaller un composant. Par exemple si vous souhaitez désinstaller Twig vous taperez :
+
+🚀
 
 ```bash
 composer remove twig
@@ -179,11 +213,15 @@ composer remove twig
 
 Un dernier point pour Twig, vous pouvez vérifier la configuration de Twig pour votre application à l'aide de la commande suivante :
 
+🚀
+
 ```bash
  php bin/console debug:config twig
  ```
 
  Pour la gestion moderne des JS, CSS et autres assets on installera **AssetMapper**, un dossier assets sera créé à la racine du projet.
+
+ 🚀
 
  ```bash
  composer require symfony/asset-mapper symfony/asset symfony/twig-pack
@@ -201,17 +239,23 @@ Remarques sur AssetMapper, quelques commandes :
 
 1. pour la production, il faudra penser à **builder** vos assets (pas maintenant) :
 
+🚀
+
 ```bash
 php bin/console asset-map:compile
 ```
 
 1. Pour voir le mapping de vos dépendances avec vos assets
 
+🚀
+
 ```bash
 php bin/console debug:asset-map
 ```
 
 1. Si vous changez d'ordinateur pensez à ré-installer vos dépendances (assets)
+
+🚀
 
 ```bash
 php bin/console importmap:install
@@ -223,6 +267,8 @@ Deux syntaxes, si vous appelez Home votre controller SF vous nommera automatique
 
 Vous deux commandes pour créer un controller :
 
+🚀
+
 ```bash
 symfony console make:controller Home
 # php bin/console make:controller Home 
@@ -231,6 +277,7 @@ symfony console make:controller Home
  Symfony crée un contrôleur, en utilisant les routes de type **attribut** ( du pur PHP ). Ouvrez le dossier **src/Controller** dans le projet. Vous trouverez le contrôleur **HomeController**. 
 
  Notez que la route est ici **/home** (voir les attributs de la classe), elle est crée en fonction du nom du controller.
+ 
 
 ```php
 <?php
@@ -287,7 +334,9 @@ Mettez un petit canard dans la page d'accueil.
 
 ## 02 Exercice Tailwindcss
 
-1. Installation de Tailwindcss (framework CSS), dans le projet Web trainer
+1. Installation de Tailwindcss (framework CSS), dans le projet Web trainer.
+
+🚀
 
 ```bash
 composer require symfonycasts/tailwind-bundle
@@ -319,6 +368,8 @@ Twig est un moteur de template qui permet de créer des vues dynamiques. Il s'ag
 ```
 
 Est équivalant à dans Twig (**syntaxe** du moteur de template) :
+
+💙
 
 ```php
 {{ var }}
@@ -450,6 +501,8 @@ graph TD
 
 - Intégrez la page ci-dessus ( simplement en CSS)
 
+🚧 
+
 1. Créez le controller Trainer
 1. Créez le controller Blog
 1. Créez le controller Contact
@@ -457,6 +510,7 @@ graph TD
 Pour les modèles, voir : [wireframe](###Wireframes)
 
 ### Détails des différentes pages à réaliser
+
 
 1. Home (page d'accueil) : Elle répertoriera les derniers feedbacks rédigés par les formateurs, des cours réalisés. L'aspect fonctionnel de cette page sera mis en œuvre ultérieurement lors de la création de la base de données.
 
