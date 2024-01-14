@@ -197,6 +197,27 @@ Un dernier point pour Twig, vous pouvez vérifier la configuration de Twig pour 
 {% endblock %}
 ```
 
+Remarques: 
+
+1. pour la production, il faudra penser à **builder** vos assets :
+
+```bash
+php bin/console asset-map:compile
+```
+
+1. Pour voir le mapping de vos dépendances de vos assets
+
+```bash
+php bin/console debug:asset-map
+```
+
+1. Si vous changez d'ordinateur pensez à ré-installer vos dépendances (assets)
+
+```bash
+php bin/console importmap:install
+```
+
+
 ### Création du controller HomeController
 
 Deux syntaxes si vous appelez Home votre controller SF vous nommera la classe HomeController, voyez également, si twig est installé le dossier home créer dans le dossier templates.
@@ -246,3 +267,28 @@ Le fichier **base.html.twig** est un fichier que les vues composites comme **ind
 ## 01 Exercice
 
 Mettez un petit canard dans la page d'accueil.
+
+## 02 Exercice
+
+1. Installation de Tailwind
+
+```bash
+composer require symfonycasts/tailwind-bundle
+php bin/console tailwind:init
+
+# build and watch tailwind
+php bin/console tailwind:build --watch
+```
+
+1. Configuration de Tailwind pour l'avoir au démarrage de SF ( CLI server start)
+
+Créez le fichier .symfony.local.yaml
+
+```yaml
+# .symfony.local.yaml
+workers:
+    # ...
+
+    tailwind:
+        cmd: ['symfony', 'console', 'tailwind:build', '--watch']
+```
