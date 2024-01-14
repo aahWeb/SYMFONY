@@ -441,9 +441,10 @@ graph TD
   A[Home] -->|Contenu Home| B(Trainers)
   A -->|Contenu Home| C(Blog)
   A -->|Contenu Home| D(Contact)
-  B -->|Liste des trainers| E(Trainer 1)
-  B -->|Liste des trainers| F(Trainer 2)
-  B -->|Liste des trainers| G(Trainer 3)
+  B -->|Liste des trainers| E(Bob)
+  B -->|Liste des trainers| F(Alan)
+  B -->|Liste des trainers| G(John)
+  B -->|Liste des trainers| G(Alice)
 ```
 
 - Intégrez la page ci-dessus ( simplement en CSS)
