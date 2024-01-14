@@ -50,7 +50,6 @@ Puis vous devez en ligne de commande exécuter la commande suivante, elle va cr�
 php bin/console doctrine:database:create
 ```
 
-
 ## Schéma de la base de données
 
 Nous allons pour l'instant créer uniquement la table trainers, nous reviendrons sur la conception des données dans un autre chapitre, ici le but est de découvrir Doctrine.
@@ -87,14 +86,14 @@ php bin/console make:entity
 # Création de la migration code SQL écrit dans du PHP
 php bin/console make:migration
 
-# Création physique de la table
+# Création physique de la table dans la base de données
 php bin/console doctrine:migrations:migrate
 
 # Modifier l'entité Trainer ajouter des champs
 php bin/console make:entity Trainer
 ```
 
-❌ Si vous modifiez une entité vous devez recréer une migration (code SQL), et refaire les étapes ci-dessus pour que la table soit effectivement modifié.
+❌ Si vous modifiez une entité vous devez recréer une migration (un nouveau fichier de migration), et refaire les étapes ci-dessus pour que la table soit effectivement modifié.
 
 
 ## Ajout de données d'exemple 
@@ -103,5 +102,6 @@ php bin/console make:entity Trainer
 
 ```bash
 composer require --dev orm-fixtures
+php bin/console doctrine:fixtures:loa
 ```
 
