@@ -60,14 +60,14 @@ Nous allons pour l'instant créer uniquement la table trainers, nous reviendrons
 
 ```mermaid
 ---
-title: Trainer
+title: Trainer Model
 ---
 classDiagram
+    class Trainer
     Trainer : +int id
     Trainer : +String name
     Trainer : +String email
     Trainer : +String phone
-    
 ```
 
 ## Utilisation du maker pour créer l'entité Trainer
