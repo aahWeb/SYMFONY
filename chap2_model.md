@@ -55,12 +55,12 @@ php bin/console doctrine:database:create
 
 Nous allons pour l'instant créer uniquement la table trainers, nous reviendrons sur la conception des données dans un autre chapitre, ici le but est de découvrir Doctrine.
 
+
+### Table Trainer
+
 ```mermaid
----
-title: Tables trainers
----
 classDiagram
-    note "table trainers"
+    note "table trainer"
     Trainer : +int id
     Trainer : +String name
     Trainer : +String email
