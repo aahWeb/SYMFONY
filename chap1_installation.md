@@ -139,7 +139,7 @@ Ce dossier contient toutes les dépendances de votre application comme Symfony p
 - public/
 *Dans ce dossier est placé tous les fichiers accessibles publiquement assets, js et le point d'entrée de votra application l'index.php*
 
-## Le projet fil rouge pour la semaine 
+## Le projet fil rouge pour la semaine Web tainer
 
 ### Installation
 
@@ -149,7 +149,7 @@ Déjà vu plus haut.
 
 Dans un Framework on utilise la ligne de commande (CLI) pour créer les classes métiers qui dépendantes du Framework. Voici les commandes utiles pour créer un contrôleur avec Symfony.
 
-Comme nous utilisons l'option **microservice** pour découvrir Symfony (installation not full), vous n'avez pas de commande (maker, pour l'instant, permettant de créer automatiquement un contrôleur.
+Comme nous utilisons l'option **microservice** pour découvrir Symfony (installation not full), vous n'avez pas de commande maker, pour l'instant, permettant de créer automatiquement un contrôleur.
 
 - Installez dans SF à l'aide de la CLI et en ligne de commande ce maker, il s'ajoutera aux commandes de la CLI SF
 
@@ -189,23 +189,23 @@ Un dernier point pour Twig, vous pouvez vérifier la configuration de Twig pour 
  composer require symfony/asset-mapper symfony/asset symfony/twig-pack
  ```
 
- Dans vos page HTML vous utiliserez alors la syntaxe suivante pour liées vos images, JS ou CSS, nous faisons cet exemple plus bas :
+ Dans vos page HTML vous utiliserez alors la syntaxe suivante pour liées vos images, JS ou CSS ( nous allons mettre cela en place plus loin dans le projet fil rouge).
 
  ```html
 {% block javascripts %}
-+    {{ importmap('app') }}
+    {{ importmap('app') }}
 {% endblock %}
 ```
 
-Remarques: 
+Remarques sur AssetMapper, quelques commandes :
 
-1. pour la production, il faudra penser à **builder** vos assets :
+1. pour la production, il faudra penser à **builder** vos assets (pas maintenant) :
 
 ```bash
 php bin/console asset-map:compile
 ```
 
-1. Pour voir le mapping de vos dépendances de vos assets
+1. Pour voir le mapping de vos dépendances avec vos assets
 
 ```bash
 php bin/console debug:asset-map
@@ -217,19 +217,20 @@ php bin/console debug:asset-map
 php bin/console importmap:install
 ```
 
-
 ### Création du controller HomeController
 
-Deux syntaxes si vous appelez Home votre controller SF vous nommera la classe HomeController, voyez également, si twig est installé le dossier home créer dans le dossier templates.
+Deux syntaxes, si vous appelez Home votre controller SF vous nommera automatiquement la classe **HomeController**, voyez également, si twig est installé, le dossier **home** sera également automatiquement créer dans le dossier **templates**.
+
+Vous deux commandes pour créer un controller :
 
 ```bash
 symfony console make:controller Home
 # php bin/console make:controller Home 
  ```
 
- Symfony crée un contrôleur en utilisant les routes de type attribut ( du pur PHP ). Ouvrez le dossier **src/Controller**. Vous trouverez le contrôleur **HomeController**. 
+ Symfony crée un contrôleur, en utilisant les routes de type **attribut** ( du pur PHP ). Ouvrez le dossier **src/Controller** dans le projet. Vous trouverez le contrôleur **HomeController**. 
 
- Notez que la route est **/home** (voir les attributs de la classe)
+ Notez que la route est ici **/home** (voir les attributs de la classe), elle est crée en fonction du nom du controller.
 
 ```php
 <?php
@@ -244,14 +245,19 @@ class HomeController extends AbstractController
     #[Route('/home', name: 'app_home')]
     public function index(): Response
     {
+        // SF utilise le templace index.html.twig pour construire la vue
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'title' => 'HomeController', // tableau associatif pour passer des valeurs à la vue
         ]);
     }
 }
 ```
 
-Si votre serveur de test est lancé, testez cette route (/home), vous devriez voir la page Twig que nous venons de créer.
+Si votre serveur de test est lancé (**symfony server:start**), testez la route suivante /home, vous devriez voir la page Twig que nous venons de créer (vérifiez le port, il correspondre à votre serveur de tests).
+
+```txt
+http://127.0.0.1:8000/home
+```
 
 Les templates se trouvent dans les dossiers suivants :
 
@@ -262,15 +268,26 @@ templates/
     base.html.twig
 ```
 
-Le fichier **base.html.twig** est un fichier que les vues composites comme **index.html.twig** hériteront. Cela permet de "factoriser" du code qui se répète dans toutes les pages.
+Le layout (modèle) **base.html.twig** est un template que les vues composites, comme **index.html.twig**, hériteront. Cela permet de "factoriser" du code qui se répète dans toutes les pages.
 
-## 01 Exercice
+## 01 Exercice duck
 
 Mettez un petit canard dans la page d'accueil.
 
-## 02 Exercice
+1. Vérifiez que AssetMapper est installé.
+1. Vous avez un dossier assets
+1. Créez le dossier images
+1. Placez l'image dans ce dossier
+1. Dans le code du HTML écrivez ce qui suit pour télécharger l'image dans la vue
 
-1. Installation de Tailwind
+```html
+<!-- si le nom de votre image est duck.png -->
+<img src="{{ asset('images/duck.png') }}">
+```
+
+## 02 Exercice Tailwindcss
+
+1. Installation de Tailwindcss (framework CSS), dans le projet Web trainer
 
 ```bash
 composer require symfonycasts/tailwind-bundle
@@ -280,15 +297,23 @@ php bin/console tailwind:init
 php bin/console tailwind:build --watch
 ```
 
-1. Configuration de Tailwind pour l'avoir au démarrage de SF ( CLI server start)
+1. Configuration de Tailwind pour l'avoir au démarrage dans votre serveur de test ( CLI server start)
 
-Créez le fichier .symfony.local.yaml
+Créez le fichier .symfony.local.yaml à la racine du projet et mettez le code suivant, redémarrez SF, vous avez maintenant le watch de Tailwind en place dans le projet.
 
 ```yaml
 # .symfony.local.yaml
 workers:
-    # ...
-
     tailwind:
         cmd: ['symfony', 'console', 'tailwind:build', '--watch']
 ```
+
+## 03 Exercice Wireframe page d'accueil
+
+Vous allez réaliser une page sur deux colonnes en utilisant **Tailwindcss** ou vos propres framework css, voyez le Wireframe ci-dessous.
+
+1. Dans le cas où vous voulez changer de Framework CSS voyez la documentation en ligne : [assetmapper](https://symfony.com/doc/current/frontend/asset_mapper.html)
+
+1. Si vous utilisez Tailwindcss utilisez la documentation suivante : [tailwindcss](https://tailwindcss.com/docs/installation)
+
+### Wireframe Home page 
