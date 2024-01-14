@@ -470,12 +470,12 @@ Pour les modèles, voir : [wireframe](###Wireframes)
 
 1. home page
 
-![homepage](./images/DevTrainer_wireframe_home.png)
+![homepage](./images/wireframe_DevTrainer_home.png)
 
 1. Trainers
 
-[todo]
+![trainers](./images/wireframe_DevTrainer_trainers.png)
 
 1. Contact
 
-![homepage](./images/DevTrainer_wireframe_contact.png)
+![contact](./images/wireframe_DevTrainer_contact.png)
