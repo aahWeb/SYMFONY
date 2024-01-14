@@ -308,12 +308,172 @@ workers:
         cmd: ['symfony', 'console', 'tailwind:build', '--watch']
 ```
 
-## 03 Exercice Wireframe page d'accueil
+## Introduction à Twig 
 
-Vous allez réaliser une page sur deux colonnes en utilisant **Tailwindcss** ou vos propres framework css, voyez le Wireframe ci-dessous.
+Twig est un moteur de template qui permet de créer des vues dynamiques. Il s'agit d'un méta-langage qui sera traduit en code source PHP, puis exécuté par le framework pour générer les pages HTML.
+
+1. Il permet d'échapper les caractères spéciaux qui pourraient introduire des failles de sécurité. L'instruction suivante en PHP :
+
+```php
+<?php echo htmlspecialchars($var, ENT_QUOTES, 'UTF-8') ?>
+```
+
+Est équivalant à dans Twig (**syntaxe** du moteur de template) :
+
+```php
+{{ var }}
+```
+
+1. Permet de faire une boucle sur un tableau PHP (c'est le controller qui passera ce tableau à la vue).
+
+```html
+{% for user in users %}
+    {{ user.name }}
+{% else %}
+    No users have been found.
+{% endfor %}
+```
+
+- Dans le controller HomeController par exemple, on aura :
+
+```php
+#[Route('/home', name: 'app_home')]
+    public function index(): Response
+    {
+        $users = [
+            ['name' =>'Alan',],
+            ['name' =>'Bob',],
+            ['name' =>'Alice',],
+            ['name' =>'John',],
+        ];
+
+        return $this->render('home/index.html.twig', [
+            'title' => 'HomeController',
+            'users' => $users
+        ]);
+    }
+```
+
+1. if Twig
+
+- Condition simple
+
+```html
+{% if users %}
+    <ul>
+        {% for user in users %}
+            <li>{{ user.username|e }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+```
+
+- Condition if avec else
+
+```html
+{% if users %}
+HTML ...
+{% else %}
+HTML ...
+{% endif %}
+```
+
+1. Utilisation de pipe ( fonction PHP) sur des variables Twig, ici on applique length sur la variable users pour avoir la longueur du tableau.
+
+```twig
+{% if users |length >  %}{% endif %}
+```
+
+1. Héritage d'un layout pour factoriser un modèle qui s'appliquera à toutes les pages
+
+```html
+{% extends "layout.html" %}
+
+{% block content %}
+    Content of the page...
+{% endblock %}
+```
+
+- Dans le fichier **index.html.twig** du dossier home, on héritera de ce layout comme suit :
+
+```html
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+    votre code ici ...
+{% endblock %}
+```
+
+1. Inclure des fichiers dans le dossier templates dans des fichiers Twig 
+```html
+{{ include('page.html', sandboxed = true) }}
+```
+
+Il y a bien d'autres fonctionnalités Twig que nous découvrirons en pratique dans l'application fil rouge que nous allons développer ensemble.
+
+[symfony-twig](https://symfony.com/doc/current/templates.html)
+
+Remarque : pour connaitre la version de Twig que vous utilsiez voyez le fichier composer.json :
+
+```json
+"symfony/twig-bundle": "7.0.*",
+```
+
+## 03 Exercice Wireframes 
+
+Vous allez réaliser une page princiaple sur deux colonnes, en utilisant **Tailwindcss** ou vos propres framework css, voyez le Wireframe ci-dessous.
+
+Bien sûr vous allez utiliser Twig pour réaliser chacune des intégrations. Aidez-vous de la documentation officiel.
+
+On ne vous demande pas de faire un maquettage graphique du projet, utilisez les wireframes ci-dessous et surtout un Framework CSS pour intégrer les pages.
 
 1. Dans le cas où vous voulez changer de Framework CSS voyez la documentation en ligne : [assetmapper](https://symfony.com/doc/current/frontend/asset_mapper.html)
 
 1. Si vous utilisez Tailwindcss utilisez la documentation suivante : [tailwindcss](https://tailwindcss.com/docs/installation)
 
-### Wireframe Home page 
+1. Nous allons construire l'arborescence suivante
+
+```mermaid
+graph TD
+  A[Home] -->|Contenu Home| B(Trainers)
+  A -->|Contenu Home| C(Blog)
+  A -->|Contenu Home| D(Contact)
+  B -->|Liste des trainers| E(Trainer 1)
+  B -->|Liste des trainers| F(Trainer 2)
+  B -->|Liste des trainers| G(Trainer 3)
+```
+
+- Intégrez la page ci-dessus ( simplement en CSS)
+
+1. Créez le controller Trainer
+1. Créez le controller Blog
+1. Créez le controller Contact
+
+Pour les modèles, voir : [wireframe](###Wireframes)
+
+### Détails des différentes pages à réaliser
+
+1. Home (page d'accueil) : Elle répertoriera les derniers feedbacks rédigés par les formateurs, des cours réalisés. L'aspect fonctionnel de cette page sera mis en œuvre ultérieurement lors de la création de la base de données.
+
+1. Trainers : Elle présentera la liste des formateurs ainsi que leurs compétences.
+
+1. Blog : Il affichera les articles rédigés par les formateurs, offrant parfois la possibilité de laisser des commentaires sur certaines publications.
+
+1. Contact : Elle fournira des informations sur la manière de contacter la société.
+
+### Wireframes
+
+1. home page
+
+![homepage](./images/DevTrainer_wireframe_home.png)
+
+1. Trainers
+
+[todo]
+
+1. Contact
+
+![homepage](./images/DevTrainer_wireframe_contact.png)
