@@ -197,6 +197,76 @@ Ce dossier contient toutes les dépendances de votre application comme Symfony p
 - public/
 *Dans ce dossier est placé tous les fichiers accessibles publiquement assets, js et le point d'entrée de votra application l'index.php*
 
+## Schéma Symfony 
+
+```mermaid
+graph LR;
+subgraph symfony
+
+    subgraph src
+        subgraph Entity
+            M2(Article.php)
+            M3(Trainer.php)
+        end
+        subgraph Controller
+            C1(HomeController)
+            C2(BlogController)
+            C3(TrainersController)
+        end
+    end
+
+    subgraph templates
+        subgraph home
+            V1(index.html.twig)
+        end
+        subgraph blog
+            V2(index.html.twig)
+        end
+        subgraph trainers
+            V3(index.html.twig)
+        end
+        V4(base.html.twig)
+    end
+
+    subgraph public
+        Router[index.php]
+    end
+
+end
+
+subgraph legend
+    style LS2 stroke:#f00,stroke-width:3px;
+    LS2([Model])
+    style LS1 stroke:#0f0,stroke-width:3px;
+    LS1([View])
+    style LS3 stroke:#00f,stroke-width:3px;
+    LS3([Controller])
+    style LS4 stroke:#AE46FA,stroke-width:3px;
+    LS4([Router])
+end
+
+CL(Client)
+
+Controller <--> Router
+M2 <--> |datas|C2
+M3 <--> |datas|C3
+V1 --> C1
+V2 --> C2
+V3 --> C3
+V4 --> Controller
+Router <-->|HTTP| CL
+
+classDef border stroke-width: 7px;
+templates:::border
+Entity:::border
+Controller:::border
+public:::border
+style templates stroke:#0f0
+style Entity stroke:#f00
+style Controller stroke:#00f
+style public stroke:#AE46FA
+```
+
 ## Le projet fil rouge pour la semaine Web tainer
 
 Nous allons créer une application qui présente une petite équipe de formateurs. Chaque formateur aura sa propre page et écrit des articles. La page d'accueil affichera plus tard les articles les plus recents ou événements importants. 
