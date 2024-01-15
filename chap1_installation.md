@@ -199,6 +199,10 @@ Ce dossier contient toutes les dépendances de votre application comme Symfony p
 
 ## Le projet fil rouge pour la semaine Web tainer
 
+Nous allons créer une application qui présente une petite équipe de formateurs. Chaque formateur aura sa propre page et écrit des articles. La page d'accueil affichera plus tard les articles les plus recents ou événements importants. 
+
+Nous vous guiderons dans l'implémentation de l'ensemble des features, sur l'ensemble des cours SF, pour expliciter les notions importantes de ce Framework.
+
 ### Installation
 
 Déjà vu plus haut.
