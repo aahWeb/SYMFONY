@@ -505,7 +505,84 @@ Remarque : pour connaitre la version de Twig que vous utilsiez voyez le fichier 
 "symfony/twig-bundle": "7.0.*",
 ```
 
-## 03 Exercice Wireframes 
+## 03 Affichez les données trainers
+
+En utilsant ce que l'on a vu dans le cours avec le contrôleur et la vue.
+
+1. Affichez les données ci-dessous dans la page trainer.
+1. Créez une mise en forme avec les styles CSS du Framework css Tailwind.
+1. Chaque trainer sera dans un div
+
+```php
+$trainers = [
+    [
+        'name' => 'Alice Johnson',
+        'address' => '123 Oak Street',
+        'phone' => '555-1111',
+        'star' => 4
+    ],
+    [
+        'name' => 'Bob Smith',
+        'address' => '456 Pine Avenue',
+        'phone' => '555-2222',
+        'star' => 5
+    ],
+    [
+        'name' => 'Charlie Davis',
+        'address' => '789 Maple Lane',
+        'phone' => '555-3333',
+        'star' => 3
+    ],
+    [
+        'name' => 'David Wilson',
+        'address' => '234 Cedar Road',
+        'phone' => '555-4444',
+        'star' => 4
+    ],
+    [
+        'name' => 'Eva Martin',
+        'address' => '567 Birch Boulevard',
+        'phone' => '555-5555',
+        'star' => 5
+    ],
+    [
+        'name' => 'Frank Miller',
+        'address' => '890 Walnut Drive',
+        'phone' => '555-6666',
+        'star' => 3
+    ],
+    [
+        'name' => 'Grace Turner',
+        'address' => '345 Sycamore Street',
+        'phone' => '555-7777',
+        'star' => 4
+    ],
+    [
+        'name' => 'Henry Harris',
+        'address' => '678 Redwood Avenue',
+        'phone' => '555-8888',
+        'star' => 5
+    ],
+    [
+        'name' => 'Ivy White',
+        'address' => '901 Pine Lane',
+        'phone' => '555-9999',
+        'star' => 3
+    ],
+    [
+        'name' => 'Jack Turner',
+        'address' => '123 Elm Road',
+        'phone' => '555-0000',
+        'star' => 4
+    ],
+    // Ajoutez d'autres trainers avec des noms fictifs
+];
+
+```
+
+
+
+## 04 Exercice Wireframes 
 
 Vous allez réaliser une page princiaple sur deux colonnes, en utilisant **Tailwindcss** ou vos propres framework css, voyez le Wireframe ci-dessous.
 
