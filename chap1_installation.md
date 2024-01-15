@@ -145,6 +145,38 @@ Ouvrez également un autre terminal à côté pour que l'on puisse exécuter des
 
 ## Présentation de la structure d'une App Symfony
 
+```mermaid
+dev-trainer/
+├─ assets/         <- Les assets JS et CSS (framework css)
+├─ bin/
+│  └─ console
+├─ config/
+│  ├─ packages/
+│  └─ services.yaml
+├─ migrations/      <- Les fichiers qui permettent de créer les tables
+├─ public/
+│  ├─ build/        <- Les fichiers builder de vos application Front
+│  └─ index.php
+├─ src/
+│  ├─ Kernel.php
+│  ├─ Command/
+│  ├─ Controller/   <- Chef d'orechestres
+│  ├─ DataFixtures/ <- Données d'exemple
+│  ├─ Entity/       <- Les modèles qui représentent les tables
+│  ├─ EventSubscriber/
+│  ├─ Form/
+│  ├─ Repository/   <- Requête personnalisées 
+│  ├─ Security/
+│  └─ Twig/         <- Les extensions Twig
+├─ templates/       <- Les templates Twig
+├─ tests/
+├─ translations/    <- Fichiers de traduction
+├─ var/
+│  ├─ cache/
+│  └─ log/
+└─ vendor/         <- Les dépendances de votre application comme Symfony (...)
+```
+
 - config/
 *Vous permet de configurer l'application ... Par exemples : définition des routes, services ou packages installés.*
 
