@@ -145,7 +145,7 @@ Ouvrez également un autre terminal à côté pour que l'on puisse exécuter des
 
 ## Présentation de la structure d'une App Symfony
 
-```mermaid
+```txt
 dev-trainer/
 ├─ assets/         <- Les assets JS et CSS (framework css)
 ├─ bin/
