@@ -588,8 +588,8 @@ En utilsant ce que l'on a vu dans le cours avec le contrôleur et la vue.
 Chaque trainer sera dans un div stylisé (css du framework).
 1. Ordonnez décroissant les trainers en fonction de leur nombre d'étoiles.
 1. Ajoutez un style spécifique pour étoiles.
-1. Nous avons ajouté un champ rates qui comporte maintenant des rates, faite la moyenne des rates pour chaque trainer si cette donnée existe. Utilisez les conditions en Twig pour savoir si un champ existe.
-1. Créez maintenant un menu main-menu.html.twig qui sera présent sur toutes les pages, faites un include comme vu dans le cours plus haut. 
+1. Nous avons ajouté un champ rates qui comporte maintenant des valeurs; faite la moyenne des rates, si cette donnée existe. Utilisez les conditions en Twig pour afficher cette informaation dans la page.
+1. Créez maintenant un menu main-menu.html.twig qui sera présent sur toutes les pages, faites un include comme vu dans le cours plus haut.
 
 ```php
 $trainers = [
