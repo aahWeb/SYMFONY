@@ -587,7 +587,9 @@ En utilsant ce que l'on a vu dans le cours avec le contrôleur et la vue.
 1. Créez une mise en forme avec les styles CSS du Framework css Tailwind.
 Chaque trainer sera dans un div stylisé (css du framework).
 1. Ordonnez décroissant les trainers en fonction de leur nombre d'étoiles.
-1. Ajoutez un style spécifique pour étoiles
+1. Ajoutez un style spécifique pour étoiles.
+1. Nous avons ajouté un champ rates qui comporte maintenant des rates, faite la moyenne des rates pour chaque trainer si cette donnée existe. Utilisez les conditions en Twig pour savoir si un champ existe.
+1. Créez maintenant un menu main-menu.html.twig qui sera présent sur toutes les pages, faites un include comme vu dans le cours plus haut. 
 
 ```php
 $trainers = [
@@ -595,13 +597,15 @@ $trainers = [
         'name' => 'Alice Johnson',
         'address' => '123 Oak Street',
         'phone' => '555-1111',
-        'star' => 4
+        'star' => 4,
+        'rates' => [11, 18, 10, 7 ]
     ],
     [
         'name' => 'Bob Smith',
         'address' => '456 Pine Avenue',
         'phone' => '555-2222',
-        'star' => 25
+        'star' => 25,
+        'rates' => [13, 10, 7, 7.5, 19, 20, 17 ]
     ],
     [
         'name' => 'Charlie Davis',
@@ -631,7 +635,8 @@ $trainers = [
         'name' => 'Grace Turner',
         'address' => '345 Sycamore Street',
         'phone' => '555-7777',
-        'star' => 14
+        'star' => 14,
+        'rates' => [1, 9, 5, 9, 10, 20, 20 ]
     ],
     [
         'name' => 'Henry Harris',
@@ -656,9 +661,11 @@ $trainers = [
 
 ```
 
+## 05 Exercice Wireframes 
 
+1. Réinstallez un projet SF trainer sur votre machine avec la configuration que nous avons faite dans le cours.
 
-## 04 Exercice Wireframes 
+1. Introduction au projet fil rouge.  
 
 Vous allez réaliser une page princiaple sur deux colonnes, en utilisant **Tailwindcss** ou vos propres framework css, voyez le Wireframe ci-dessous.
 
@@ -668,9 +675,9 @@ On ne vous demande pas de faire un maquettage graphique du projet, utilisez les 
 
 1. Dans le cas où vous voulez changer de Framework CSS voyez la documentation en ligne : [assetmapper](https://symfony.com/doc/current/frontend/asset_mapper.html)
 
-1. Si vous utilisez Tailwindcss utilisez la documentation suivante : [tailwindcss](https://tailwindcss.com/docs/installation)
+1. Si vous utilisez Tailwindcss ou un autre Framework CSS utilisez la documentation suivante : [tailwindcss](https://tailwindcss.com/docs/installation)
 
-1. Nous allons construire l'arborescence suivante
+1. Nous allons construire l'arborescence suivante.
 
 ```mermaid
 graph TD
