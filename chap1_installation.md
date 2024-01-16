@@ -586,6 +586,8 @@ En utilsant ce que l'on a vu dans le cours avec le contrôleur et la vue.
 1. Affichez les données ci-dessous dans la page trainer.
 1. Créez une mise en forme avec les styles CSS du Framework css Tailwind.
 Chaque trainer sera dans un div stylisé (css du framework).
+1. Ordonnez décroissant les trainers en fonction de leur nombre d'étoiles.
+1. Ajoutez un style spécifique pour étoiles
 
 ```php
 $trainers = [
@@ -599,19 +601,19 @@ $trainers = [
         'name' => 'Bob Smith',
         'address' => '456 Pine Avenue',
         'phone' => '555-2222',
-        'star' => 5
+        'star' => 25
     ],
     [
         'name' => 'Charlie Davis',
         'address' => '789 Maple Lane',
         'phone' => '555-3333',
-        'star' => 3
+        'star' => 1
     ],
     [
         'name' => 'David Wilson',
         'address' => '234 Cedar Road',
         'phone' => '555-4444',
-        'star' => 4
+        'star' => 40
     ],
     [
         'name' => 'Eva Martin',
@@ -623,31 +625,31 @@ $trainers = [
         'name' => 'Frank Miller',
         'address' => '890 Walnut Drive',
         'phone' => '555-6666',
-        'star' => 3
+        'star' => 7
     ],
     [
         'name' => 'Grace Turner',
         'address' => '345 Sycamore Street',
         'phone' => '555-7777',
-        'star' => 4
+        'star' => 14
     ],
     [
         'name' => 'Henry Harris',
         'address' => '678 Redwood Avenue',
         'phone' => '555-8888',
-        'star' => 5
+        'star' => 15
     ],
     [
         'name' => 'Ivy White',
         'address' => '901 Pine Lane',
         'phone' => '555-9999',
-        'star' => 3
+        'star' => 8
     ],
     [
         'name' => 'Jack Turner',
         'address' => '123 Elm Road',
         'phone' => '555-0000',
-        'star' => 4
+        'star' => 2
     ],
     // Ajoutez d'autres trainers avec des noms fictifs
 ];
