@@ -585,7 +585,7 @@ En utilsant ce que l'on a vu dans le cours avec le contrôleur et la vue.
 
 1. Affichez les données ci-dessous dans la page trainer.
 1. Créez une mise en forme avec les styles CSS du Framework css Tailwind.
-Chaque trainer sera dans un div
+Chaque trainer sera dans un div stylisé (css du framework).
 
 ```php
 $trainers = [
