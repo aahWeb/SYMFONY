@@ -188,12 +188,13 @@ class AppFixtures extends Fixture
     }
 }
 ```
-### 01 Exercice créer une entité Foo
+### 01 Exercice créer une entité Trainer
 
-Avec ce que l'on a vue créer une entité Foo dans lequel on retrouve les champs :
-- title
-- text
-- creationDate
+Avec ce que l'on a vue créer une entité Trainer dans lequel on retrouve les champs :
+- String name
+- String address
+- String phone
+- Int stars
 
 Remarque la clé id (numérique) se crée automatiquement avec Doctrine.
 
@@ -234,9 +235,9 @@ class TrainersController extends AbstractController
 ## 03 Exercice création d'une Entity Category
 
 Créez une entité Category dans lequel on retrouve les champs :
-- title
-- abstract
-- content
+- String title
+- String abstract
+- Text content
 
 Remarque la clé id (numérique) se crée automatiquement avec Doctrine.
 
@@ -253,8 +254,9 @@ php bin/console doctrine:migrations:migrate
 
 ## 04 Exercice modifier une Entity Trainer existante
 
-Modifiez l'entité Trainer en ajoutant le champ rate de type numérique.
+Modifiez l'entité Trainer en ajoutant les champs **stars** et **rate** de type **numérique**.
 
+- stars type numérique
 - rate type numérique
 
 Hydratez cette table avec les DataFixtures ( même fichier ).
