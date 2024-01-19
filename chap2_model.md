@@ -36,7 +36,9 @@ Afin de pouvoir créer notre base de données, nous devons d'abort indiquer à n
 
 Dans votre fichier **.env**, trouver la ligne commenté `###> doctrine/doctrine-bundle ###`. En dessous il y a plusieur ligne commencant par `DATABASE_URL="`, vous reconnaitrez des url vers des bases de données; Commenté celles qui ne vous interesent pas et décommenté l'url qui correspond le mieux à votre base de données.  
 Il faudra néanmoins modifier cette ligne d'instruction;
->DATABASE_URL="mysql://**mot_de_passe**:**nom_utilisateur**@127.0.0.1:3306/?serverVersion=**version_de_mysql**&charset=utf8mb4"
+
+> [!IMPORTANT]
+> DATABASE_URL="mysql://**nom_utilisateur**:**mot_de_passe**@127.0.0.1:3306/?serverVersion=**version_de_mysql**&charset=utf8mb4"
 
 Pour trouver la version de votre application MySQL, vous pouvez vous y connécter et lancer la commande `status`; Parmis les information affiché vous trouverez la version de votre server.
 
